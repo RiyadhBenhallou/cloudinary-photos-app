@@ -15,7 +15,7 @@ const UploadButton = () => {
             // console.log(results);
             setTimeout(() => {
               router.refresh();
-            }, 500);
+            }, 1000);
           }}
           uploadPreset="htfrhjyy"
         >

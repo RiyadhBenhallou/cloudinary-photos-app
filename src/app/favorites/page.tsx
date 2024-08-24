@@ -1,8 +1,9 @@
 import { CldImage } from "next-cloudinary";
 import UploadButton from "../gallery//upload-button";
 import cloudinary from "cloudinary";
-import CloudinaryImage from "../gallery/cloudinary-image";
+import CloudinaryImage from "../../components/cloudinary-image";
 import ForceRefresh from "@/components/force-refresh";
+import FavoritesList from "./favorites-list";
 
 export type SearchResults = {
   public_id: string;
@@ -25,11 +26,7 @@ export default async function GalleryPage() {
           <h1 className="text-4xl font-bold">Favorites</h1>
           <UploadButton />
         </div>
-        <div className="grid grid-cols-4 gap-2">
-          {results?.resources?.map((resource) => {
-            return <CloudinaryImage key={resource.public_id} {...resource} />;
-          })}
-        </div>
+        <FavoritesList initialResults={results} />
       </section>
     </>
   );
