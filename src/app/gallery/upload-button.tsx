@@ -17,7 +17,7 @@ const UploadButton = () => {
               router.refresh();
             }, 1000);
           }}
-          uploadPreset="htfrhjyy"
+          uploadPreset="ml_default"
         >
           <div className="flex gap-2 items-center">
             <svg

@@ -1,13 +1,14 @@
 "use client";
 import ForceRefresh from "@/components/force-refresh";
+import { PromptPopover } from "@/components/prompt-popover";
 import { Button } from "@/components/ui/button";
 import { CldImage } from "next-cloudinary";
 import { useState } from "react";
 
 export default function EditPage({
-  searchParams: { publicId },
+  searchParams: { publicId, prompt },
 }: {
-  searchParams: { publicId: string };
+  searchParams: { publicId: string; prompt: string };
 }) {
   const [transformation, setTransformation] = useState<
     | undefined
@@ -42,14 +43,12 @@ export default function EditPage({
           >
             Remove Background
           </Button>
-          <Button
-            variant={"secondary"}
-            onClick={() => {
-              setTransformation("generative-fill");
-            }}
+          <PromptPopover
+            setTransformation={setTransformation}
+            publicId={publicId}
           >
-            Generative Fill
-          </Button>
+            <Button variant={"secondary"}>Generative Fill</Button>
+          </PromptPopover>
           <Button
             variant={"secondary"}
             onClick={() => {
@@ -85,67 +84,71 @@ export default function EditPage({
               alt="Description of my image"
             />
           </div>
-          {transformation == "background-removal" && (
-            <div className="rounded-lg overflow-hidden w-[480px]">
-              <CldImage
-                width="960"
-                height="600"
-                src={publicId}
-                sizes="100vw"
-                alt="Description of my image"
-                removeBackground
-              />
-            </div>
-          )}
-          {transformation == "generative-fill" && (
-            <div className="rounded-lg overflow-hidden w-[480px]">
-              <CldImage
-                width="960"
-                height="600"
-                src={publicId}
-                sizes="100vw"
-                alt="Description of my image"
-                crop={"pad"}
-                fillBackground
-              />
-            </div>
-          )}
-          {transformation == "blur" && (
-            <div className="rounded-lg overflow-hidden w-[480px]">
-              <CldImage
-                width="960"
-                height="600"
-                src={publicId}
-                sizes="100vw"
-                alt="Description of my image"
-                blur
-              />
-            </div>
-          )}
-          {transformation == "grayscale" && (
-            <div className="rounded-lg overflow-hidden w-[480px]">
-              <CldImage
-                width="960"
-                height="600"
-                src={publicId}
-                sizes="100vw"
-                alt="Description of my image"
-                grayscale
-              />
-            </div>
-          )}
-          {transformation == "pixelate" && (
-            <div className="rounded-lg overflow-hidden w-[480px]">
-              <CldImage
-                width="960"
-                height="600"
-                src={publicId}
-                sizes="100vw"
-                alt="Description of my image"
-                pixelate
-              />
-            </div>
-          )}
+          <div className="">
+            {transformation == "background-removal" && (
+              <div className="rounded-lg overflow-hidden w-[480px]">
+                <CldImage
+                  width="960"
+                  height="600"
+                  src={publicId}
+                  sizes="100vw"
+                  alt="Description of my image"
+                  removeBackground
+                />
+              </div>
+            )}
+            {transformation == "generative-fill" && (
+              <div className="rounded-lg overflow-hidden w-[480px]">
+                <CldImage
+                  width="960"
+                  height="600"
+                  src={publicId}
+                  sizes="100vw"
+                  alt="Description of my image"
+                  crop={"pad"}
+                  fillBackground={{
+                    prompt,
+                  }}
+                />
+              </div>
+            )}
+            {transformation == "blur" && (
+              <div className="rounded-lg overflow-hidden w-[480px]">
+                <CldImage
+                  width="960"
+                  height="600"
+                  src={publicId}
+                  sizes="100vw"
+                  alt="Description of my image"
+                  blur
+                />
+              </div>
+            )}
+            {transformation == "grayscale" && (
+              <div className="rounded-lg overflow-hidden w-[480px]">
+                <CldImage
+                  width="960"
+                  height="600"
+                  src={publicId}
+                  sizes="100vw"
+                  alt="Description of my image"
+                  grayscale
+                />
+              </div>
+            )}
+            {transformation == "pixelate" && (
+              <div className="rounded-lg overflow-hidden w-[480px]">
+                <CldImage
+                  width="960"
+                  height="600"
+                  src={publicId}
+                  sizes="100vw"
+                  alt="Description of my image"
+                  pixelate
+                />
+              </div>
+            )}
+          </div>
         </div>
       </section>
     </>
