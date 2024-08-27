@@ -67,13 +67,11 @@ export default function AlbumsDropdown({
         <DropdownMenuGroup>
           {folders.map((folder) => {
             return (
-              <>
-                <DropdownMenuItem key={folder.name}>
-                  <Link href={`/albums/${folder.path}`} className="w-full">
-                    {folder.name}
-                  </Link>
-                </DropdownMenuItem>
-              </>
+              <DropdownMenuItem key={folder.name}>
+                <Link href={`/albums/${folder.path}`} className="w-full">
+                  {folder.name}
+                </Link>
+              </DropdownMenuItem>
             );
           })}
         </DropdownMenuGroup>

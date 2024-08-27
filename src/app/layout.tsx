@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -8,8 +8,10 @@ import Heart from "@/components/icons/heart";
 import { FolderType } from "./albums/page";
 import cloudinary from "cloudinary";
 import AlbumsDropdown from "@/components/albums-dropdown";
+import { Home } from "lucide-react";
 
 const inter = Inter({ subsets: ["latin"] });
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,13 +24,23 @@ async function SideMenu() {
   };
 
   return (
-    <div className="pb-12 w-1/5">
+    <div className="pb-12 w-1/5 border-r-2 border-slate-800">
       <div className="space-y-4 py-4">
         <div className="px-3 py-2">
           <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
             Manage
           </h2>
           <div className="space-y-1">
+            <Button
+              asChild
+              variant="ghost"
+              className="w-full justify-start flex gap-2"
+            >
+              <Link href="/">
+                <Home />
+                Home
+              </Link>
+            </Button>
             <Button
               asChild
               variant="ghost"
@@ -53,25 +65,15 @@ async function SideMenu() {
               </Link>
             </Button>
             <AlbumsDropdown folders={folders} />
-            {/* {folders.map((folder) => (
-              <Button
-                variant="ghost"
-                asChild
-                key={folder.name}
-                className="w-full justify-start flex gap-2"
-              >
-                <Link className="pl-8" href={`/albums/${folder.path}`}>
-                  {folder.name}
-                </Link>
-              </Button>
-            ))} */}
             <Button
               asChild
               variant="ghost"
-              className="w-full justify-start flex gap-2"
+              className="w-full justify-start flex gap-2 group"
             >
               <Link href="/favorites">
-                <Heart />
+                <Heart
+                  className={`group-hover:text-red-500 transition-all duration-400`}
+                />
                 Favorites
               </Link>
             </Button>
@@ -90,9 +92,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={inter.className}>
-        <div className="border-b">
-          <div className="flex h-16 items-center px-4 container mx-auto font-mono">
-            MyPhotos
+        <div className="border-b border-slate-800">
+          <div
+            className={`flex h-16 items-center px-4 container mx-auto montserrat-font]`}
+          >
+            <div
+              className={`${montserrat.className} text-slate-200 font-bold text-xl`}
+            >
+              Artif<span className="text-slate-400">Eye</span>
+            </div>
             <div className="ml-auto flex items-center space-x-4">
               <Avatar>
                 <AvatarImage src="https://github.com/shadcn.png" />

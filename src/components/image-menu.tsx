@@ -59,8 +59,8 @@ export default function ImageMenu(
               }}
               className="flex items-center gap-2 text-left pl-2 w-full"
             >
-              <Delete width={20} />
-              <span className="text-xs pl-2">Delete</span>
+              <Delete width={20} className="text-red-500" />
+              <span className="text-xs pl-2 text-red-500">Delete</span>
             </button>
           </DropdownMenuItem>
         </DropdownMenuContent>
