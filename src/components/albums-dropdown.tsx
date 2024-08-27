@@ -33,7 +33,7 @@ export default function AlbumsDropdown({
       }}
     >
       <DropdownMenuTrigger asChild>
-        <Button asChild variant="ghost" className="w-full cursor-pointer">
+        <Button asChild variant="ghost" className="w-full cursor-pointer group">
           <div className="flex justify-between items-center">
             <Link
               href="/albums"
@@ -45,7 +45,7 @@ export default function AlbumsDropdown({
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="w-6 h-6 group-hover:text-blue-500 transition-all duration-400"
               >
                 <path
                   strokeLinecap="round"

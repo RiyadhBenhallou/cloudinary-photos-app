@@ -34,17 +34,17 @@ async function SideMenu() {
             <Button
               asChild
               variant="ghost"
-              className="w-full justify-start flex gap-2"
+              className="w-full justify-start flex gap-2 group"
             >
               <Link href="/">
-                <Home />
+                <Home className="group-hover:text-yellow-500 transition-all duration-400" />
                 Home
               </Link>
             </Button>
             <Button
               asChild
               variant="ghost"
-              className="w-full justify-start flex gap-2"
+              className="w-full justify-start flex gap-2 group"
             >
               <Link href="/gallery">
                 <svg
@@ -53,7 +53,7 @@ async function SideMenu() {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6"
+                  className="w-6 h-6 group-hover:text-green-500 transition-all duration-400"
                 >
                   <path
                     strokeLinecap="round"
