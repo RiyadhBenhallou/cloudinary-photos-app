@@ -1,6 +1,9 @@
 "use client";
 
-import { CldUploadButton } from "next-cloudinary";
+import {
+  CldUploadButton,
+  CloudinaryUploadWidgetResults,
+} from "next-cloudinary";
 import { resultsType } from "../page";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
@@ -11,7 +14,7 @@ const UploadButton = () => {
     <Button asChild>
       <div className="flex gap-2">
         <CldUploadButton
-          onSuccess={(results: resultsType) => {
+          onSuccess={(results: CloudinaryUploadWidgetResults) => {
             // console.log(results);
             setTimeout(() => {
               router.refresh();
