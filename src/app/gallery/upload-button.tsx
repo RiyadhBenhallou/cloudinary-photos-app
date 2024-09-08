@@ -4,7 +4,6 @@ import {
   CldUploadButton,
   CloudinaryUploadWidgetResults,
 } from "next-cloudinary";
-import { resultsType } from "../page";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 

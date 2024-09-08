@@ -1,14 +1,11 @@
-import AlbumsDropdown from "@/components/albums-dropdown";
-import Heart from "@/components/icons/heart";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import cloudinary from "cloudinary";
-import { Folders, GalleryHorizontal, HeartIcon, Home, HomeIcon } from "lucide-react";
+import { Folders, HeartIcon, Home } from "lucide-react";
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
-import Providers from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 const montserrat = Montserrat({ subsets: ["latin"] });
