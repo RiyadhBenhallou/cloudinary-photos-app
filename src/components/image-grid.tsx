@@ -17,16 +17,12 @@ export default function ImageGrid({
     });
   }
   return (
-    <div className="grid grid-cols-4 gap-2">
-      {[getColumns(0), getColumns(1), getColumns(2), getColumns(3)].map(
-        (col, i) => {
-          return (
-            <div key={i} className="flex flex-col gap-4">
-              {col.map(getImage)}
-            </div>
-          );
-        }
-      )}
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+      {[...Array(MAX_COLS)].map((_, i) => (
+        <div key={i} className="flex flex-col gap-4">
+          {getColumns(i).map(getImage)}
+        </div>
+      ))}
     </div>
   );
 }

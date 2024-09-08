@@ -30,14 +30,14 @@ export default function ImageMenu(
           <Menu />
         </DropdownMenuTrigger>
         <DropdownMenuContent className="">
-          <DropdownMenuItem asChild>
+          {/* <DropdownMenuItem asChild>
             <AddToAlbumDialog image={props.image}>
               <div className="flex items-center gap-4">
                 <FolderPlus width={20} className="" />
                 <span className="text-xs">Add to Album</span>
               </div>
             </AddToAlbumDialog>
-          </DropdownMenuItem>
+          </DropdownMenuItem> */}
           <DropdownMenuItem>
             <Link
               href={`/edit?publicId=${props.image.public_id}`}
