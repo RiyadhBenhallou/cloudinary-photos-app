@@ -4,12 +4,14 @@ import cloudinary from "cloudinary";
 import CloudinaryImage from "../../components/cloudinary-image";
 import ForceRefresh from "@/components/force-refresh";
 import FavoritesList from "./favorites-list";
+import { unstable_noStore } from "next/cache";
 
 export type SearchResults = {
   public_id: string;
   tags: string[];
 };
 export default async function GalleryPage() {
+  unstable_noStore();
   const results = (await cloudinary.v2.search
     .expression("resource_type:image AND tags=favorite")
     .sort_by("created_at", "desc")
