@@ -19,7 +19,7 @@ export default async function GalleryPage() {
     .max_results(30)
     .execute()
     .then()) as { resources: SearchResults[] };
-  console.log(results);
+
   return (
     <>
       <ForceRefresh />
